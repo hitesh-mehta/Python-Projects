@@ -1,0 +1,192 @@
+'''
+#Dictionaries and Tuples
+#Menu-driven program for performing all the basic functions of a dictionary
+d = {}
+n = int(input('Enter the no. of students whose data you want to give:'))
+for i in range(n):
+    roll_no = int(input('Enter the roll number of the student:'))
+    name = input('Enter the name of the student:')
+    avg = float(input('Enter the average marks of the above student:'))
+    d[roll_no] = (name,avg)
+
+print("List of programs:\n1 Print the dictionary of the data of the students"
+      "2 To search for a particular student"
+      "3 To print the average marks of a students"
+      "4 To delete the data of a particular student"
+      "5 To add the data of a new student and print the updated dictionary"
+      "0 To exit the program")
+
+
+def search(d,s):
+    flag = 0
+    for k in d:
+        if d[k][0] == s:
+            flag = 1
+            break
+    if flag == 1:
+        print(s,'is there in the dictionary')
+    else:
+        print(s, 'is not there in the dictionary')
+
+def avg(d,name_s):
+    flag = 0
+    for k in d:
+        if d[k][0] == name_s:
+            flag = 1
+            break
+    if flag == 1:
+        print(d[k][1],'are the average marks scored by',name_s)
+    else:
+        print(name_s, 'is not there in the dictionary')
+
+def delete(d,r):
+    try:
+        del d[r]
+        print(d)
+    except:
+        print(r,'is not in the dictionary')
+
+def add(d,r_new,name_new,avg_new):
+    d.update({r_new:(name_new,avg_new)})
+    print(d)
+
+while True:
+    ch = int(input('Enter the serial no. of the function you want to perform:'))
+    if ch==1:
+        print('Roll.No\tName\tAverage Marks')
+        for j in d:
+            print(j,'\t   ',d[j][0],'\t',d[j][1])
+    elif ch==2:
+        s = input('Enter the name of the student to be searched:')
+        search(d, s)
+    elif ch==3:
+        name_s = input('Enter the name of the student whose average marks are to be printed:')
+        avg(d, name_s)
+    elif ch==4:
+        r = int(input('Enter the roll no. of the student whose data you want to delete:'))
+    elif ch == 5:
+        r_new = int(input('Enter the roll number of the new student:'))
+        name_new = input('Enter the name of the new student:')
+        avg_new = float(input('Enter the average marks of the above student:'))
+    elif ch==0:
+        break
+    else:
+        print('Invalid input! Try Again')
+
+
+'''
+
+
+'''To check whether a number is a prime number or not using Python
+num = int(input('Enter any positive integer of your choice:'))
+if num == 1:
+    print('1 is neither prime nor composite')
+else:
+    flag = 0
+    for i in range(2,(num//2)+1):
+        if num%i==0:
+            flag = 1
+            break
+
+    if flag == 0:
+        print(num,'is a prime number')
+    else:
+        print(num, 'is not a prime number')
+
+
+#To print the first n numbers in the Fibonacci sequence
+#0,1,1,2,3,5,8,...
+n = int(input("Enter how many terms of the sequence do you want to print?"))
+if n>0:
+    def Fibonacci(n):
+        pre = 0
+        curr = 1
+        nex = pre+curr
+        print(pre,end = ' ')
+        for i in range(n-1):
+            print(curr , end = ' ')
+            pre = curr
+            curr = nex
+            nex = pre+curr
+
+    Fibonacci(n)
+else:
+    print('Invalid input!')
+
+
+
+#To check if a number is an Armstrong NUmber or not
+def Armstrong(n):
+    num = n
+    s = 0
+    while n!=0:
+        digit = n%10
+        s += (digit**3)
+        n //= 10
+    if s==num:
+        print(num,'is an Armstrong Number')
+    else:
+        print(num, 'is not an Armstrong Number')
+n = int(input("Enter any positive integer of your choice:"))
+Armstrong(n)
+
+
+x = int(input("Enter the base number:"))
+y = int(input('Enter the exponent number:'))
+def power(x,y):
+    res = x
+    for i in range(y-1):
+        res *= x
+    return res
+print(power(x,y))
+
+
+a = int(input("Enter the first side of the triangle:"))
+b = int(input("Enter the second side of the triangle:"))
+c = int(input("Enter the third side of the triangle:"))
+if a==b or b==c or a==c:
+    print('The triangle is an isosceles triangle')
+else:
+    print('The triangle is not an isosceles triangle')
+
+
+st = input('Enter any string:')
+ct = 0
+for i in st:
+    if i in 'aeiouAEIOU':
+        ct+=1
+print('There are',ct,'no. of vowels in',st)
+
+
+f_name = input('Enter your first name:')
+l_name = input("Enter your last name:")
+f_name = f_name.title()
+l_name = l_name.title()
+full_name = f_name + ' ' + l_name
+print(full_name)
+
+st = input('Enter any string of your choice:')
+st1 = ''
+st1+=st[0]
+for i in range(1,len(st)):
+    if st[i] == st[0]:
+        st1+='$'
+    else:
+        st1+=st[i]
+print(st1)
+
+
+
+#To check for a Palindromic string
+
+def palindrome(st):
+    rev_st = ''
+    for i in range(-1,-len(st)-1):
+        rev_st+=st[i]
+    if rev_st == st:
+        print(st,'is a palindromic string')
+    else:
+        print(st, 'is not a palindromic string')
+
+st = input('Enter any string of your choice:')
+palindrome(st)
