@@ -1,0 +1,13 @@
+import datetime as dt
+hr = int(input("Enter the hour at which you want to wake up:"))
+mn = int(input("Enter the minute at which you want to wake up:"))
+am_pm = input("Enter AM or PM:")
+
+if am_pm == 'PM':
+    hr+=12
+
+while True:
+    if (hr==dt.datetime.now().hour) and (mn==dt.datetime.now().minute):
+        print("Hey! Wake up.\nYou are getting late.")
+        break
+    
