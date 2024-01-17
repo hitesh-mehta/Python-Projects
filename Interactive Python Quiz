@@ -1,0 +1,87 @@
+print("Interactive Quiz on Sikkim and its Heritage\nMade by Hitesh Mehta")
+print("Rules:\nType:\nA for option (a)\nB for option (b)\nC for option (c)\nD for option (d)\nType Next to go to the next question")
+marks = 0
+import speech_recognition as sr
+def SpeechReco():
+    r = sr.Recognizer()
+    with sr.Microphone() as source:
+        print("Speak your option:")
+        audio = r.listen(source)
+
+        try:
+            text = r.recognize_google(audio)
+            print(text)
+        except:
+            print("Sorry could not recognize your voice!")
+        return text
+def correct():
+    from pygame import mixer  
+    mixer.init() 
+    mixer.music.load('c:/Users/Hp/Downloads/Correct Answer sound effect.mp3') 
+    mixer.music.set_volume(0.7) 
+    mixer.music.play()
+def wrong():
+    from pygame import mixer 
+    mixer.init() 
+    mixer.music.load('c:/Users/Hp/Downloads/Wrong Answer Sound Effect.mp3') 
+    mixer.music.set_volume(0.7) 
+    mixer.music.play()
+
+    
+print("Question 1. With which of the following states of India does Sikkim share its boundary?\n(a)West Bengal\n(b)Arunachal Pradesh\n(c)Bihar\n(d)Assam")
+ch = SpeechReco()
+if ch in "Aa":
+    correct()
+    marks+=1
+else:
+    wrong()
+input()
+
+
+
+print("Question 2. In which year did Sikkim become the 22nd state of India?\n(a)1922\n(b)1974\n(c)1986\n(d)1975")
+ch = SpeechReco()
+if ch in "Dd":
+    correct()
+    marks+=1
+else:
+    wrong()
+input()
+
+
+
+
+print("Question 3. The state animal of Sikkim is:\n(a)Red Panda\n(b)Snow Leopard\n(c)Gayal\n(d)None of these")
+ch = SpeechReco()
+if ch in "Aa":
+    correct()
+    marks+=1
+else:
+    wrong()
+input()
+
+
+
+print("Question 4. Who was the first chief minister of Sikkim?\n(a)Bahadur Bhandari\n(b)B. B. Gurung\n(c)Kazi Dorjee\n(d)Pawan Chamling")
+ch = SpeechReco()
+if ch in "Cc":
+    correct()
+    marks+=1
+else:
+    wrong()
+input()
+
+
+print("Question 5. Nathu La pass connects India to:\n(a)China\n(b)Bhutan\n(c)Nepal\n(d)Bangladesh")
+ch = SpeechReco()
+if ch in "Aa":
+    correct()
+    marks+=1
+else:
+    wrong()
+
+print("You have scored",marks,"marks out of 5 marks.")
+print("Thank You for playing :)")
+
+
+
