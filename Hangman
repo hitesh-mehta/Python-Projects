@@ -1,0 +1,106 @@
+print('Hey Players! Welcome to the Hangman Game!')
+print('You need to guess the name of the animals correctly to win the game! \nMake sure you do not allow the hangman to get completed!')
+animals1 = ['lion','cat','dog','wolf','monkey','cow','deer','tiger','bear','jaguar','crocodile','rat','snake','panda','horse','donkey','ox','bull','rabbit','tortoise','turtle']
+animals2 = ['elephant','antelope','buffalo','giraffe','alligator','ostrich','penguin','hyena']
+animals3 = ['hippopotamus','rhinoceros','chimpanzee','otter','anaconda','kangaroo',]
+import random
+dec = 0
+def game(level,animals):
+    global dec 
+    print('Let\'s begin with Level,',level)
+    ch = random.choice(animals)
+    mis = 0
+    res = '_'*len(ch)
+    lst = list(res)
+    lst_ch = list(ch)
+    def hangman(mis):
+        if mis==0:
+            print('-'*12)
+        elif mis==1:
+            print('''
+    ------------
+         o''')
+        elif mis==2:
+            print('''
+    ------------
+         o
+         |''')
+        elif mis==3:
+            print('''
+    ------------
+         o
+         |/''')
+        elif mis == 4:
+            print('''
+    ------------
+         o
+        \|/''')
+        elif mis==5:
+            print('''
+    ------------
+         o
+        \|/
+         |''')
+        elif mis == 6:
+            print('''
+    ------------
+         o
+        \|/
+         |
+        /''')
+        elif mis == 7:
+            print('''
+    ------------
+         o
+        \|/
+         |
+        / \ ''')
+    i = 0
+    while True:
+        if res==ch or mis==7:
+            if res==ch:
+                dec = 1
+                print('Congrats! You passed the level')
+            else:
+                print('You lost the game!')
+            break    
+        if i==0:
+            print(hangman(0))
+            for j in res:
+                print(j,end = ' ')
+            print()
+        guess = input('Enter the alphabet you have guessed:')
+        if len(guess)==1:
+            if guess in lst_ch:
+                for i in range(ch.count(guess)):
+                    lst[lst_ch.index(guess)] = guess
+                    lst_ch[lst_ch.index(guess)] = '*'
+                    res = ''.join(lst)
+            else:
+                mis+=1
+            print(hangman(mis))
+            for j in res:
+                print(j,end = ' ')
+            print()
+        else:
+            print('Please enter a single alphabet only!')
+        
+        i+=1
+   
+game(1,animals1)
+if dec == 1:
+    game(2,animals2)
+    if dec == 1:
+        game(3,animals3)
+        if dec == 1:
+            print('You won the game! Thanks for playing')
+
+
+        
+            
+            
+
+    
+            
+        
+        
