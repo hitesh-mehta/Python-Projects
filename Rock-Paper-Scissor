@@ -1,0 +1,115 @@
+import random
+#Player's Choice
+p1 = (input("           AN INTERACTIVE ROCK, PAPER, SCISSOR GAME\n                    Made by HITESH MEHTA\nMake your choice: Rock, Paper or Scissor"))
+if p1 in ["Rock","rock","r","R"]:
+    p1 = "r"
+elif p1 in ["Paper","paper","P","p"]:
+    p1 = "p"
+elif p1 in ["Scissor","scissor","s","S"]:
+    p1 = "s"
+else:
+    print("Sorry, I can\'t understand!!")
+#Computer's Choice
+c1 = random.randint(1,3)
+if c1 == 1:
+    c1 = "r"
+elif c1 == 2:
+    c1 = "p"
+else:
+    c1 = "s"
+#The Real Game
+if c1 == "r":
+    if p1 == "r":
+        print("It\'s a tie")
+    elif p1 == "p":
+        print("You win")
+    elif p1 == "s":
+        print("You lose")
+    else:
+        print("")
+elif c1 == "p":
+    if p1 == "r":
+        print("You lose")
+    elif p1 == "p":
+        print("It\'s a tie")
+    elif p1 == "s":
+        print("You win")
+    else:
+        print("")
+elif c1 == "s":
+    if p1 == "r":
+        print("You win")
+    elif p1 == "p":
+        print("You lose")
+    elif p1 == "s":
+        print("It\'s a tie")
+    else:
+        print("")
+if p1 in ["Rock","rock","r","R","Paper","paper","P","p","Scissor","scissor","s","S"]:
+    if c1 == "r":
+        print("Computer has chosen Rock")
+    elif c1=="p":
+        print("Computer has chosen Paper")
+    else:
+        print("Computer has chosen Scissor")
+turns = input("Do you want to play again?")
+while turns in ["Yes","yes","Y","y"]:
+    #Player's Choice
+    p1 = (input("Make your choice: Rock, Paper or Scissor"))
+    if p1 in ["Rock","rock","r","R"]:
+        p1 = "r"
+    elif p1 in ["Paper","paper","P","p"]:
+        p1 = "p"
+    elif p1 in ["Scissor","scissor","s","S"]:
+        p1 = "s"
+    else:
+        print("Sorry, I can\'t understand!!")
+    #Computer's Choice
+    c1 = random.randint(1,3)
+    if c1 == 1:
+        c1 = "r"
+    elif c1 == 2:
+        c1 = "p"
+    else:
+        c1 = "s"
+    #The Real Game
+    if c1 == "r":
+        if p1 == "r":
+            print("It\'s a tie")
+        elif p1 == "p":
+            print("You win")
+        elif p1 == "s":
+            print("You lose")
+        else:
+            print("")
+    elif c1 == "p":
+        if p1 == "r":
+            print("You lose")
+        elif p1 == "p":
+            print("It\'s a tie")
+        elif p1 == "s":
+            print("You win")
+        else:
+            print("")
+    elif c1 == "s":
+        if p1 == "r":
+            print("You win")
+        elif p1 == "p":
+            print("You lose")
+        elif p1 == "s":
+            print("It\'s a tie")
+        else:
+            print("")
+    if p1 in ["Rock","rock","r","R","Paper","paper","P","p","Scissor","scissor","s","S"]:
+        if c1 == "r":
+            print("Computer has chosen Rock")
+        elif c1=="p":
+            print("Computer has chosen Paper")
+        else:
+            print("Computer has chosen Scissor")
+    turns = input("Do you want to play again?")
+
+    
+
+
+        
