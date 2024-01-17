@@ -1,0 +1,14 @@
+def f(txt):
+    from gtts import gTTS as a
+    import os
+    language = 'hi'
+    output = a(text = txt,lang = language,slow = True)
+    output.save('OUTPUT.mp3')
+    os.system('start OUTPUT.mp3')
+t = ('ॐ  भूर्भुवः   स्वः   तत्सवितुर्वरेण्यं भर्गो   देवस्य   धीमहि धियो   यो   नः   प्रचोदयात्।')
+txt = ''
+for i in range(1,109):
+    txt+=str(i)
+    txt+=' '
+    txt+=t
+f(txt)
