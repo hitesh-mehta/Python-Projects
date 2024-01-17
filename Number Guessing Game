@@ -1,0 +1,30 @@
+#Number Guessing Game
+print('''Hello Gamers!
+Rules of the Number Guessing Game
+The computer will choose any random natural number from 1 to 50.
+You have to guess the number chosen by the computer and for it you will have 5 chances.''')
+from random import randint as rd
+choice = rd(1,50)
+flag = 0
+for i in range(1,6):
+    print('You have',6-i,'chances left.')
+    choice_user = int(input('Enter your guess:'))
+    if choice_user == choice:
+        flag = 1
+        break
+    elif choice_user>choice and choice_user-choice>15:
+        print('Too high!')
+    elif choice_user>choice and choice_user-choice>5 and choice_user-choice<=15 :
+        print('High!')
+    elif choice_user>choice and choice_user-choice>0 and choice_user-choice<=5 :
+        print('Close!')
+    elif choice_user<choice and choice-choice_user>5 and choice-choice_user<=15:
+        print('Low!')
+    elif choice_user<choice and choice-choice_user>15:
+        print('Too low!')
+    else:
+        print('Close!')
+if flag == 0:
+    print('Sorry! You have lost the game. The computer has chosen:',choice)
+else:
+    print('Well Done! You have won the game!')
