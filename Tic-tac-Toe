@@ -1,0 +1,53 @@
+#Tic-tac-toe
+d = {1:' ',2:' ',3:' ',4:' ',5:' ',6:' ',7:' ',8:' ',9:' '}
+def box():
+    global d
+    print(d[1]+'|'+d[2]+'|'+d[3])
+    print('-+ +-')
+    print(d[4]+'|'+d[5]+'|'+d[6])
+    print('-+ +-')
+    print(d[7]+'|'+d[8]+'|'+d[9])
+import random
+def entry(ch,pos):
+    global d
+    if d[pos]==' ':
+        d[pos]=ch
+    box()
+    print('\n\n')
+
+
+box()
+while True:
+    l=[]
+    for i in d:
+        if d[i]==' ':
+            l.append(i)
+    ch = input('X or O:')
+    pos = int(input('Enter the position no:'))
+    entry(ch,pos)
+    if d[1]==d[2]==d[3]!=' ' or d[4]==d[5]==d[6]!=' ' or d[7]==d[8]==d[9]!=' ' or d[1]==d[5]==d[9]!=' ' or d[3]==d[5]==d[7]!=' ' or d[1]==d[4]==d[7]!=' ' or d[2]==d[5]==d[8]!=' ' or d[3]==d[6]==d[9]!=' ':
+        break
+    flg = 0
+    for i in d:
+        if d[i]==' ':
+            flg=1
+    if flg==0:
+        break
+    c = random.randint(1,2)
+    p = random.randrange(len(l))
+    if c==1:
+        cc='X'
+    else:
+        cc='O'
+    pc = l[p]
+    entry(cc,pc)
+    if d[1] == d[2] == d[3] != ' ' or d[4] == d[5] == d[6] != ' ' or d[7] == d[8] == d[9] != ' ' or d[1] == d[5] == d[
+        9] != ' ' or d[3] == d[5] == d[7] != ' ' or d[1] == d[4] == d[7] != ' ' or d[2] == d[5] == d[8] != ' ' or d[
+        3] == d[6] == d[9] != ' ':
+        break
+    flg = 0
+    for i in d:
+        if d[i] == ' ':
+            flg = 1
+    if flg == 0:
+        break
