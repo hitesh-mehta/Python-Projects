@@ -1,0 +1,7 @@
+from gtts import gTTS as a
+import os
+txt = input("Enter the text you want to convert to speech:")
+language = 'en'
+output = a(text = txt,lang = language,slow = False)
+output.save('OUTPUT.mp3')
+os.system('start OUTPUT.mp3')
